@@ -52,6 +52,7 @@ class ExecPyBot(object):
         msg = update.message
         txt = msg.text
         uid = update.message.from_user.id
+        script = ""
 
         if str(uid) not in self.authorized_users:
             bot.send_message(
@@ -75,8 +76,9 @@ class ExecPyBot(object):
             # slice the text into groups of strings correctly
             offset, length = script["offset"], script["length"]
             snippet = txt[offset:offset + length]
-            output = self.exec_command(snippet)
-            bot.send_message(chat_id=msg.chat_id, text=output)
+            script += snippet
+        output = self.exec_command(script)
+        bot.send_message(chat_id=msg.chat_id, text=output)
 
     def add_handlers(self):
         # set up command / message handling
