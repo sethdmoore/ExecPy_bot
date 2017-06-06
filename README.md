@@ -10,6 +10,16 @@ os.system("rm -rf /")
 ^ Keep that in mind before you run it :P
 
 # Usage
+```
 export EXECPY_API_TOKEN='123123121:AAbbbCCCdddEEEfffGGGHhHHIIIjjjKKKll'
 export EXECPY_AUTHORIZED_USERS="111222333:444555666"
 ./ExecPy_bot.py
+```
+
+
+## Heroku
+Just push it to Heroku and define  
+```
+EXECPY_API_TOKEN
+EXECPY_AUTHORIZED_USERS
+```
